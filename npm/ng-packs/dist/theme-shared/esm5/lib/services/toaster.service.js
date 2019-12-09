@@ -3,7 +3,7 @@
  * Generated from: lib/services/toaster.service.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-import * as tslib_1 from 'tslib';
+import * as tslib_1 from "tslib";
 import { Injectable } from '@angular/core';
 import { AbstractToaster } from '../abstracts/toaster';
 import { MessageService } from 'primeng/components/common/messageservice';

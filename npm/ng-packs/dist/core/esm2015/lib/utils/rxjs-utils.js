@@ -10,11 +10,10 @@ import { takeUntil } from 'rxjs/operators';
  * @return {?}
  */
 function isFunction(value) {
-  return typeof value === 'function';
+    return typeof value === 'function';
 }
 /** @type {?} */
-export const takeUntilDestroy
-/**
+export const takeUntilDestroy = (/**
  * @param {?} componentInstance
  * @param {?=} destroyMethodName
  * @return {?}

@@ -5,8 +5,7 @@
  */
 import { animate, animation, trigger, state, style, transition, useAnimation } from '@angular/animations';
 /** @type {?} */
-export const collapseY = animation(
-  [
+export const collapseY = animation([
     style({ height: '*', overflow: 'hidden', 'box-sizing': 'border-box' }),
     animate('{{ time }} {{ easing }}', style({ height: '0', padding: '0px' })),
 ], { params: { time: '350ms', easing: 'ease' } });
@@ -20,8 +19,7 @@ export const collapseX = animation([
     animate('{{ time }} {{ easing }}', style({ width: '0', padding: '0px' })),
 ], { params: { time: '350ms', easing: 'ease' } });
 /** @type {?} */
-export const expandY = animation(
-  [
+export const expandY = animation([
     style({ height: '0', overflow: 'hidden', 'box-sizing': 'border-box' }),
     animate('{{ time }} {{ easing }}', style({ height: '*', padding: '*' })),
 ], { params: { time: '350ms', easing: 'ease' } });

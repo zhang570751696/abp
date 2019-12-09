@@ -90,6 +90,19 @@ export class VisibilityDirective {
             return;
         this.renderer.removeChild(this.elRef.nativeElement.parentElement, this.elRef.nativeElement);
         this.disconnect();
+    }
+}
+VisibilityDirective.decorators = [
+    { type: Directive, args: [{
+                selector: '[abpVisibility]',
+            },] }
+];
+/** @nocollapse */
+VisibilityDirective.ctorParameters = () => [
+    { type: ElementRef, decorators: [{ type: Optional }] },
+    { type: Renderer2 }
+];
+VisibilityDirective.propDecorators = {
     focusedElement: [{ type: Input, args: ['abpVisibility',] }]
 };
 if (false) {

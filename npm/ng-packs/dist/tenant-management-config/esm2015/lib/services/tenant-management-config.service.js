@@ -5,35 +5,30 @@
  */
 import { Injectable } from '@angular/core';
 import { addAbpRoutes } from '@abp/ng.core';
-import * as i0 from '@angular/core';
+import * as i0 from "@angular/core";
 export class TenantManagementConfigService {
-  constructor() {
-    addAbpRoutes({
-      name: 'AbpTenantManagement::Menu:TenantManagement',
-      path: 'tenant-management',
-      parentName: 'AbpUiNavigation::Menu:Administration',
-      layout: 'application' /* application */,
-      iconClass: 'fa fa-users',
-      children: [
-        {
-          path: 'tenants',
-          name: 'AbpTenantManagement::Tenants',
-          order: 1,
-          requiredPolicy: 'AbpTenantManagement.Tenants',
-        },
-      ],
-    });
-  }
+    constructor() {
+        addAbpRoutes({
+            name: 'AbpTenantManagement::Menu:TenantManagement',
+            path: 'tenant-management',
+            parentName: 'AbpUiNavigation::Menu:Administration',
+            layout: "application" /* application */,
+            iconClass: 'fa fa-users',
+            children: [
+                {
+                    path: 'tenants',
+                    name: 'AbpTenantManagement::Tenants',
+                    order: 1,
+                    requiredPolicy: 'AbpTenantManagement.Tenants',
+                },
+            ],
+        });
+    }
 }
 TenantManagementConfigService.decorators = [
-  {
-    type: Injectable,
-    args: [
-      {
-        providedIn: 'root',
-      },
-    ],
-  },
+    { type: Injectable, args: [{
+                providedIn: 'root',
+            },] }
 ];
 /** @nocollapse */
 TenantManagementConfigService.ctorParameters = () => [];

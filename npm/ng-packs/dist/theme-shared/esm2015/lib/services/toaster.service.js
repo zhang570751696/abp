@@ -25,10 +25,8 @@ export class ToasterService extends AbstractToaster {
          * @param {?} message
          * @return {?}
          */
-        message => Object.assign({ key: this.key }, message),
-      ),
-    );
-  }
+        message => (Object.assign({ key: this.key }, message)))));
+    }
 }
 ToasterService.decorators = [
     { type: Injectable, args: [{ providedIn: 'root' },] }

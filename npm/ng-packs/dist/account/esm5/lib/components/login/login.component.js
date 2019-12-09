@@ -54,47 +54,24 @@ var LoginComponent = /** @class */ (function () {
          */
         function () {
             /** @type {?} */
-            var redirectUrl =
-              snq(
-                /**
-                 * @return {?}
-                 */
-                (function() {
-                  return window.history.state;
-                }),
-              ).redirectUrl ||
-              (_this.options || {}).redirectUrl ||
-              '/';
+            var redirectUrl = snq((/**
+             * @return {?}
+             */
+            function () { return window.history.state; })).redirectUrl || (_this.options || {}).redirectUrl || '/';
             _this.store.dispatch(new Navigate([redirectUrl]));
-          },
-        ),
-        catchError(
-          /**
-           * @param {?} err
-           * @return {?}
-           */
-          function(err) {
-            _this.toasterService.error(
-              snq(
-                /**
+        })), catchError((/**
+         * @param {?} err
+         * @return {?}
+         */
+        function (err) {
+            _this.toasterService.error(snq((/**
+             * @return {?}
+             */
+            function () { return err.error.error_description; })) ||
+                snq((/**
                  * @return {?}
                  */
-                function() {
-                  return err.error.error_description;
-                },
-              ) ||
-                snq(
-                  /**
-                   * @return {?}
-                   */
-                  function() {
-                    return err.error.error.message;
-                  },
-                  'AbpAccount::DefaultErrorMessage',
-                ),
-              'Error',
-              { life: 7000 },
-            );
+                function () { return err.error.error.message; }), 'AbpAccount::DefaultErrorMessage'), 'Error', { life: 7000 });
             return throwError(err);
         })), finalize((/**
          * @return {?}

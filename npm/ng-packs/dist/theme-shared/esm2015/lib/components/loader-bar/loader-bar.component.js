@@ -11,20 +11,6 @@ import { Actions, ofActionSuccessful } from '@ngxs/store';
 import { interval, timer } from 'rxjs';
 import { filter } from 'rxjs/operators';
 export class LoaderBarComponent {
-  /**
-   * @param {?} actions
-   * @param {?} router
-   * @param {?} cdRef
-   */
-  constructor(actions, router, cdRef) {
-    this.actions = actions;
-    this.router = router;
-    this.cdRef = cdRef;
-    this.containerClass = 'abp-loader-bar';
-    this.color = '#77b6ff';
-    this.isLoading = false;
-    this.progressLevel = 0;
-    this.filter
     /**
      * @param {?} actions
      * @param {?} router
@@ -136,12 +122,9 @@ export class LoaderBarComponent {
     }
 }
 LoaderBarComponent.decorators = [
-  {
-    type: Component,
-    args: [
-      {
-        selector: 'abp-loader-bar',
-        template: `
+    { type: Component, args: [{
+                selector: 'abp-loader-bar',
+                template: `
     <div id="abp-loader-bar" [ngClass]="containerClass" [class.is-loading]="isLoading">
       <div
         class="abp-progress"
@@ -157,12 +140,16 @@ LoaderBarComponent.decorators = [
             }] }
 ];
 /** @nocollapse */
-LoaderBarComponent.ctorParameters = () => [{ type: Actions }, { type: Router }, { type: ChangeDetectorRef }];
+LoaderBarComponent.ctorParameters = () => [
+    { type: Actions },
+    { type: Router },
+    { type: ChangeDetectorRef }
+];
 LoaderBarComponent.propDecorators = {
-  containerClass: [{ type: Input }],
-  color: [{ type: Input }],
-  isLoading: [{ type: Input }],
-  filter: [{ type: Input }],
+    containerClass: [{ type: Input }],
+    color: [{ type: Input }],
+    isLoading: [{ type: Input }],
+    filter: [{ type: Input }]
 };
 if (false) {
     /** @type {?} */

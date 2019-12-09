@@ -1,6 +1,6 @@
 {
   "name": "@abp/ng.core",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "dependencies": {
     "@ngxs/router-plugin": "^3.5.1",
     "@ngxs/storage-plugin": "^3.5.1",
@@ -24,5 +24,5 @@
   "typings": "abp-ng.core.d.ts",
   "metadata": "abp-ng.core.metadata.json",
   "sideEffects": false,
-  "gitHead": "2f588b67002cd64e8660f43217c2197ccc9fe631"
+  "gitHead": "42d9eb857fca97c046ebac4286b6831c8b8c1887"
 }

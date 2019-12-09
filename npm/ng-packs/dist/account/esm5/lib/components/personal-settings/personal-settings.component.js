@@ -3,7 +3,7 @@
  * Generated from: lib/components/personal-settings/personal-settings.component.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-import * as tslib_1 from 'tslib';
+import * as tslib_1 from "tslib";
 import { GetProfile, ProfileState, UpdateProfile } from '@abp/ng.core';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';

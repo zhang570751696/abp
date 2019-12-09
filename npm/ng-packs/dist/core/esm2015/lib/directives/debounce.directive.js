@@ -45,6 +45,11 @@ InputEventDebounceDirective.decorators = [
 InputEventDebounceDirective.ctorParameters = () => [
     { type: ElementRef }
 ];
+InputEventDebounceDirective.propDecorators = {
+    debounce: [{ type: Input }],
+    debounceEvent: [{ type: Output, args: ['input.debounce',] }]
+};
+if (false) {
     /** @type {?} */
     InputEventDebounceDirective.prototype.debounce;
     /** @type {?} */

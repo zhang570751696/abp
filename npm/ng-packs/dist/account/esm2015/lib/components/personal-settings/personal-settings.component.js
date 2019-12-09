@@ -3,7 +3,7 @@
  * Generated from: lib/components/personal-settings/personal-settings.component.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-import * as tslib_1 from 'tslib';
+import * as tslib_1 from "tslib";
 import { GetProfile, ProfileState, UpdateProfile } from '@abp/ng.core';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -37,10 +37,10 @@ export class PersonalSettingsComponent {
             .dispatch(new GetProfile())
             .pipe(withLatestFrom(this.profile$), take(1))
             .subscribe((/**
-        }));
-    }
-}
-PersonalSettingsComponent.decorators = [
+         * @param {?} __0
+         * @return {?}
+         */
+        ([, profile]) => {
             this.form = this.fb.group({
                 userName: [profile.userName, [required, maxLength(256)]],
                 email: [profile.email, [required, email, maxLength(256)]],
@@ -76,6 +76,18 @@ PersonalSettingsComponent.decorators = [
                 selector: 'abp-personal-settings-form',
                 template: "<form validateOnSubmit *ngIf=\"form\" [formGroup]=\"form\" (ngSubmit)=\"submit()\">\r\n  <div class=\"form-group\">\r\n    <label for=\"username\">{{ 'AbpIdentity::DisplayName:UserName' | abpLocalization }}</label\r\n    ><span> * </span\r\n    ><input\r\n      type=\"text\"\r\n      id=\"username\"\r\n      class=\"form-control\"\r\n      formControlName=\"userName\"\r\n      autofocus\r\n      (keydown.space)=\"$event.preventDefault()\"\r\n    />\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col col-md-6\">\r\n      <div class=\"form-group\">\r\n        <label for=\"name\">{{ 'AbpIdentity::DisplayName:Name' | abpLocalization }}</label\r\n        ><input type=\"text\" id=\"name\" class=\"form-control\" formControlName=\"name\" />\r\n      </div>\r\n    </div>\r\n    <div class=\"col col-md-6\">\r\n      <div class=\"form-group\">\r\n        <label for=\"surname\">{{ 'AbpIdentity::DisplayName:Surname' | abpLocalization }}</label\r\n        ><input type=\"text\" id=\"surname\" class=\"form-control\" formControlName=\"surname\" />\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label for=\"email-address\">{{ 'AbpIdentity::DisplayName:Email' | abpLocalization }}</label\r\n    ><span> * </span><input type=\"text\" id=\"email-address\" class=\"form-control\" formControlName=\"email\" />\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label for=\"phone-number\">{{ 'AbpIdentity::DisplayName:PhoneNumber' | abpLocalization }}</label\r\n    ><input type=\"text\" id=\"phone-number\" class=\"form-control\" formControlName=\"phoneNumber\" />\r\n  </div>\r\n  <abp-button\r\n    buttonType=\"submit\"\r\n    iconClass=\"fa fa-check\"\r\n    buttonClass=\"btn btn-primary color-white\"\r\n    [loading]=\"inProgress\"\r\n    [disabled]=\"form?.invalid || form?.pristine\"\r\n  >\r\n    {{ 'AbpIdentity::Save' | abpLocalization }}</abp-button\r\n  >\r\n</form>\r\n"
             }] }
+];
+/** @nocollapse */
+PersonalSettingsComponent.ctorParameters = () => [
+    { type: FormBuilder },
+    { type: Store },
+    { type: ToasterService }
+];
+tslib_1.__decorate([
+    Select(ProfileState.getProfile),
+    tslib_1.__metadata("design:type", Observable)
+], PersonalSettingsComponent.prototype, "profile$", void 0);
+if (false) {
     /** @type {?} */
     PersonalSettingsComponent.prototype.profile$;
     /** @type {?} */

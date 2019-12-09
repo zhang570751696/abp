@@ -12,19 +12,34 @@ import { Store } from '@ngxs/store';
 import snq from 'snq';
 import { finalize } from 'rxjs/operators';
 var minLength = Validators.minLength, required = Validators.required, maxLength = Validators.maxLength;
-     * @param {?} groupErrors
-     * @param {?} control
+/** @type {?} */
+var PASSWORD_FIELDS = ['newPassword', 'repeatNewPassword'];
+var ChangePasswordComponent = /** @class */ (function () {
+    function ChangePasswordComponent(fb, store, toasterService) {
+        this.fb = fb;
+        this.store = store;
+        this.toasterService = toasterService;
+        this.mapErrorsFn = (/**
+         * @param {?} errors
+         * @param {?} groupErrors
+         * @param {?} control
+         * @return {?}
+         */
+        function (errors, groupErrors, control) {
+            if (PASSWORD_FIELDS.indexOf(control.name) < 0)
+                return errors;
+            return errors.concat(groupErrors.filter((/**
+             * @param {?} __0
+             * @return {?}
+             */
+            function (_a) {
+                var key = _a.key;
+                return key === 'passwordMismatch';
+            })));
+        });
+    }
+    /**
      * @return {?}
-     */
-    ChangePasswordComponent.prototype.ngOnInit = /**
-     * @return {?}
-     */
-    function () {
-     */
-    ChangePasswordComponent.prototype.ngOnInit = /**
-     * @return {?}
-     */
-    function () {
      */
     ChangePasswordComponent.prototype.ngOnInit = /**
      * @return {?}

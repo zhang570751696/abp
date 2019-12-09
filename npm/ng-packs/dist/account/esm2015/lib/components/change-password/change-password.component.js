@@ -12,77 +12,24 @@ import { Store } from '@ngxs/store';
 import snq from 'snq';
 import { finalize } from 'rxjs/operators';
 const { minLength, required, maxLength } = Validators;
-    this.mapErrorsFn
+/** @type {?} */
+const PASSWORD_FIELDS = ['newPassword', 'repeatNewPassword'];
+export class ChangePasswordComponent {
     /**
-     * @param {?} errors
-     * @param {?} groupErrors
-     * @param {?} control
-     * @return {?}
-     */ = (errors, groupErrors, control) => {
-      if (PASSWORD_FIELDS.indexOf(control.name) < 0) return errors;
-      return errors.concat(
-        groupErrors.filter(
-          /**
-           * @param {?} __0
-           * @return {?}
-           */
-          ({ key }) => key === 'passwordMismatch',
-        ),
-      );
-    };
-  }
-  /**
-   * @return {?}
-   */
-  ngOnInit() {
-    this.form = this.fb.group(
-      {
-        password: ['', required],
-        newPassword: ['', required],
-        repeatNewPassword: ['', required],
-      },
-      {
-        validators: [comparePasswords(PASSWORD_FIELDS)],
-      },
-    );
-  }
-  /**
-   * @return {?}
-   */
-  onSubmit() {
-    if (this.form.invalid) return;
-    this.inProgress = true;
-    this.store
-      .dispatch(
-        new ChangePassword({
-          currentPassword: this.form.get('password').value,
-          newPassword: this.form.get('newPassword').value,
-        }),
-      )
-      .pipe(
-        finalize(
-          /**
-           * @return {?}
-           */
-          () => (this.inProgress = false),
-        ),
-      )
-      .subscribe({
-        /**
+     * @param {?} fb
+     * @param {?} store
+     * @param {?} toasterService
+     */
+    constructor(fb, store, toasterService) {
+        this.fb = fb;
+        this.store = store;
+        this.toasterService = toasterService;
+        this.mapErrorsFn = (/**
+         * @param {?} errors
+         * @param {?} groupErrors
+         * @param {?} control
          * @return {?}
          */
-        (errors, groupErrors, control) => {
-            if (PASSWORD_FIELDS.indexOf(control.name) < 0)
-                return errors;
-            return errors.concat(groupErrors.filter((/**
-        (errors, groupErrors, control) => {
-            if (PASSWORD_FIELDS.indexOf(control.name) < 0)
-                return errors;
-            return errors.concat(groupErrors.filter((/**
-        (errors, groupErrors, control) => {
-            if (PASSWORD_FIELDS.indexOf(control.name) < 0)
-                return errors;
-            return errors.concat(groupErrors.filter((/**
         (errors, groupErrors, control) => {
             if (PASSWORD_FIELDS.indexOf(control.name) < 0)
                 return errors;
@@ -178,6 +125,14 @@ ChangePasswordComponent.decorators = [
                 selector: 'abp-change-password-form',
                 template: "<form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\" [mapErrorsFn]=\"mapErrorsFn\" validateOnSubmit>\r\n  <div class=\"form-group\">\r\n    <label for=\"current-password\">{{ 'AbpIdentity::DisplayName:CurrentPassword' | abpLocalization }}</label\r\n    ><span> * </span\r\n    ><input type=\"password\" id=\"current-password\" class=\"form-control\" formControlName=\"password\" autofocus />\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label for=\"new-password\">{{ 'AbpIdentity::DisplayName:NewPassword' | abpLocalization }}</label\r\n    ><span> * </span><input type=\"password\" id=\"new-password\" class=\"form-control\" formControlName=\"newPassword\" />\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label for=\"confirm-new-password\">{{ 'AbpIdentity::DisplayName:NewPasswordConfirm' | abpLocalization }}</label\r\n    ><span> * </span\r\n    ><input type=\"password\" id=\"confirm-new-password\" class=\"form-control\" formControlName=\"repeatNewPassword\" />\r\n  </div>\r\n  <abp-button\r\n    iconClass=\"fa fa-check\"\r\n    buttonClass=\"btn btn-primary color-white\"\r\n    buttonType=\"submit\"\r\n    [loading]=\"inProgress\"\r\n    [disabled]=\"form?.invalid\"\r\n    >{{ 'AbpIdentity::Save' | abpLocalization }}</abp-button\r\n  >\r\n</form>\r\n"
             }] }
+];
+/** @nocollapse */
+ChangePasswordComponent.ctorParameters = () => [
+    { type: FormBuilder },
+    { type: Store },
+    { type: ToasterService }
+];
+if (false) {
     /** @type {?} */
     ChangePasswordComponent.prototype.form;
     /** @type {?} */

@@ -6,71 +6,47 @@
 import { animate, animation, style } from '@angular/animations';
 /** @type {?} */
 export var fadeIn = animation([style({ opacity: '0' }), animate('{{ time}} {{ easing }}', style({ opacity: '1' }))], {
-  params: { time: '350ms', easing: 'ease' },
+    params: { time: '350ms', easing: 'ease' },
 });
 /** @type {?} */
-export var fadeOut = animation([style({ opacity: '1' }), animate('{{ time}} {{ easing }}', style({ opacity: '0' }))], {
-  params: { time: '350ms', easing: 'ease' },
-});
+export var fadeOut = animation([style({ opacity: '1' }), animate('{{ time}} {{ easing }}', style({ opacity: '0' }))], { params: { time: '350ms', easing: 'ease' } });
 /** @type {?} */
-export var fadeInDown = animation(
-  [
+export var fadeInDown = animation([
     style({ opacity: '0', transform: '{{ transform }} translateY(-20px)' }),
     animate('{{ time }} {{ easing }}', style({ opacity: '1', transform: '{{ transform }} translateY(0)' })),
-  ],
-  { params: { time: '350ms', easing: 'ease', transform: '' } },
-);
+], { params: { time: '350ms', easing: 'ease', transform: '' } });
 /** @type {?} */
-export var fadeInUp = animation(
-  [
+export var fadeInUp = animation([
     style({ opacity: '0', transform: '{{ transform }} translateY(20px)' }),
     animate('{{ time }} {{ easing }}', style({ opacity: '1', transform: '{{ transform }} translateY(0)' })),
-  ],
-  { params: { time: '350ms', easing: 'ease', transform: '' } },
-);
+], { params: { time: '350ms', easing: 'ease', transform: '' } });
 /** @type {?} */
-export var fadeInLeft = animation(
-  [
+export var fadeInLeft = animation([
     style({ opacity: '0', transform: '{{ transform }} translateX(20px)' }),
     animate('{{ time }} {{ easing }}', style({ opacity: '1', transform: '{{ transform }} translateX(0)' })),
-  ],
-  { params: { time: '350ms', easing: 'ease', transform: '' } },
-);
+], { params: { time: '350ms', easing: 'ease', transform: '' } });
 /** @type {?} */
-export var fadeInRight = animation(
-  [
+export var fadeInRight = animation([
     style({ opacity: '0', transform: '{{ transform }} translateX(-20px)' }),
     animate('{{ time }} {{ easing }}', style({ opacity: '1', transform: '{{ transform }} translateX(0)' })),
-  ],
-  { params: { time: '350ms', easing: 'ease', transform: '' } },
-);
+], { params: { time: '350ms', easing: 'ease', transform: '' } });
 /** @type {?} */
-export var fadeOutDown = animation(
-  [
+export var fadeOutDown = animation([
     style({ opacity: '1', transform: '{{ transform }} translateY(0)' }),
     animate('{{ time }} {{ easing }}', style({ opacity: '0', transform: '{{ transform }} translateY(20px)' })),
-  ],
-  { params: { time: '350ms', easing: 'ease', transform: '' } },
-);
+], { params: { time: '350ms', easing: 'ease', transform: '' } });
 /** @type {?} */
-export var fadeOutUp = animation(
-  [
+export var fadeOutUp = animation([
     style({ opacity: '1', transform: '{{ transform }} translateY(0)' }),
     animate('{{ time }} {{ easing }}', style({ opacity: '0', transform: '{{ transform }} translateY(-20px)' })),
-  ],
-  { params: { time: '350ms', easing: 'ease', transform: '' } },
-);
+], { params: { time: '350ms', easing: 'ease', transform: '' } });
 /** @type {?} */
-export var fadeOutLeft = animation(
-  [
+export var fadeOutLeft = animation([
     style({ opacity: '1', transform: '{{ transform }} translateX(0)' }),
     animate('{{ time }} {{ easing }}', style({ opacity: '0', transform: '{{ transform }} translateX(20px)' })),
-  ],
-  { params: { time: '350ms', easing: 'ease', transform: '' } },
-);
+], { params: { time: '350ms', easing: 'ease', transform: '' } });
 /** @type {?} */
-export var fadeOutRight = animation(
-  [
+export var fadeOutRight = animation([
     style({ opacity: '1', transform: '{{ transform }} translateX(0)' }),
     animate('{{ time }} {{ easing }}', style({ opacity: '0', transform: '{{ transform }} translateX(-20px)' })),
 ], { params: { time: '350ms', easing: 'ease', transform: '' } });
