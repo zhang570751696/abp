@@ -20,7 +20,7 @@ namespace Volo.Abp.AuditLogging.MongoDB
 
         }
 
-        public async Task<List<AuditLog>> GetListAsync(
+        public virtual async Task<List<AuditLog>> GetListAsync(
             string sorting = null,
             int maxResultCount = 50, 
             int skipCount = 0,
@@ -58,7 +58,7 @@ namespace Volo.Abp.AuditLogging.MongoDB
                 .ToListAsync(GetCancellationToken(cancellationToken));
         }
 
-        public async Task<long> GetCountAsync(
+        public virtual async Task<long> GetCountAsync(
             DateTime? startTime = null,
             DateTime? endTime = null,
             string httpMethod = null,
@@ -92,7 +92,7 @@ namespace Volo.Abp.AuditLogging.MongoDB
             return count;
         }
 
-        private IQueryable<AuditLog> GetListQuery(
+        protected virtual IQueryable<AuditLog> GetListQuery(
             DateTime? startTime = null,
             DateTime? endTime = null,
             string httpMethod = null,
@@ -122,12 +122,17 @@ namespace Volo.Abp.AuditLogging.MongoDB
         }
 
 
-        public async Task<Dictionary<DateTime, double>> GetAverageExecutionDurationPerDayAsync(DateTime startDate, DateTime endDate)
+        public virtual async Task<Dictionary<DateTime, double>> GetAverageExecutionDurationPerDayAsync(DateTime startDate, DateTime endDate)
         {
             var result = await GetMongoQueryable()
                 .Where(a => a.ExecutionTime < endDate.AddDays(1) && a.ExecutionTime > startDate)
                 .OrderBy(t => t.ExecutionTime)
-                .GroupBy(t => new { t.ExecutionTime.Date })
+                .GroupBy(t => new
+                {
+                    t.ExecutionTime.Year,
+                    t.ExecutionTime.Month,
+                    t.ExecutionTime.Day
+                })
                 .Select(g => new { Day = g.Min(t => t.ExecutionTime), avgExecutionTime = g.Average(t => t.ExecutionDuration) })
                 .ToListAsync();
 
